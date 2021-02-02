@@ -9,6 +9,7 @@ COMP-6721-Assignment-2
 
 
 ### Assignment-2 Commands
+    - python autograder.py -q q1
 
 	- python autograder.py
 
