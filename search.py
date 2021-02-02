@@ -99,25 +99,53 @@ def depthFirstSearch(problem):
 
     states = util.Stack()  # DFS states
     visited_states = set()  # To maintain visited states
-    actions = []   # To return actions from which goal state arrived
+    actions = []   # To return actions from which goal state is arrived
     states.push((problem.getStartState(), []))
     while not states.isEmpty():
-        current_state, actions = states.pop()
+        current_state, current_state_actions = states.pop()
         if problem.isGoalState(current_state):
-            return actions
-        visited_states.add(current_state)
-        for successor in problem.getSuccessors(current_state):
-            successor_state, successor_action, successor_cost = successor
-            if successor_state not in visited_states:
-                successor_combined_actions = actions + [successor_action]
-                states.push((successor_state, successor_combined_actions))
+            actions = current_state_actions
+            break
+        if current_state not in visited_states:
+            visited_states.add(current_state)
+            for successor in problem.getSuccessors(current_state):
+                successor_state, successor_action, successor_cost = successor
+                if successor_state not in visited_states:
+                    successor_combined_actions = current_state_actions + [successor_action]
+                    states.push((successor_state, successor_combined_actions))
     return actions
 
 
 def breadthFirstSearch(problem):
-    """Search the shallowest nodes in the search tree first."""
-    "*** YOUR CODE HERE ***"
-    util.raiseNotDefined()
+    """Search the shallowest nodes in the search tree first.
+
+    Algorithm Logic
+    ---------------
+    Insert root state into states queue, iterate thorough queue till it becomes empty or goal state is reached,
+    extract top most state of the queue, check if the current state is goal state or not,
+    return list of actions if the current state is a goal state, otherwise, insert current state
+    into list of visited states. For current state iterate through all its successors and check
+    if next state of successor state is visited or not, if not visited then, add action of current state
+    into list of actions, add current successor state into states queue and repeat the flow.
+    return list of actions if queue is empty or goal state is not found.
+    """
+    states = util.Queue()  # BFS states
+    visited_states = set()  # To maintain visited states
+    actions = []  # To return actions from which goal state is arrived
+    states.push((problem.getStartState(), []))
+    while not states.isEmpty():
+        current_state, current_state_actions = states.pop()
+        if problem.isGoalState(current_state):
+            actions = current_state_actions
+            break
+        if current_state not in visited_states:
+            visited_states.add(current_state)
+            for successor in problem.getSuccessors(current_state):
+                successor_state, successor_action, successor_cost = successor
+                if successor_state not in visited_states:
+                    successor_combined_actions = current_state_actions + [successor_action]
+                    states.push((successor_state, successor_combined_actions))
+    return actions
 
 def uniformCostSearch(problem):
     """Search the node of least total cost first."""
