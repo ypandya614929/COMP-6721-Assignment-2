@@ -25,7 +25,7 @@ COMP-6721-Assignment-2
     There is one terminal/cmd output file 'autograder_out.txt' which shows the grading and 
     result of test cases.
 
-#### Results
+# Results
 
 #### Question:6
 - Heuristic resulted in expansion of **693** nodes
@@ -37,7 +37,12 @@ COMP-6721-Assignment-2
 - Path found with cost **323**
 - Pacman emerges victorious! Score: **2387**
 
-### Game Play Commands
+
+
+
+
+
+## Game Play Commands
     
 #### Question:1
     python pacman.py -l tinyMaze -p SearchAgent
