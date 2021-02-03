@@ -469,8 +469,17 @@ def foodHeuristic(state, problem):
     problem.heuristicInfo['wallCount']
     """
     position, foodGrid = state
-    "*** YOUR CODE HERE ***"
-    return 0
+
+    distance_list = []
+    heuristic_value = 0
+    list_of_food_coordinates = foodGrid.asList()
+    if list_of_food_coordinates:
+        for food_pos in list_of_food_coordinates:
+            # Calculate mazeDistance based on packman position, food position and starting state of the game.
+            distance_list.append(mazeDistance(position, food_pos, problem.startingGameState))
+        heuristic_value = max(distance_list)
+    return heuristic_value
+
 
 class ClosestDotSearchAgent(SearchAgent):
     "Search for all food using a sequence of searches"
@@ -500,8 +509,41 @@ class ClosestDotSearchAgent(SearchAgent):
         walls = gameState.getWalls()
         problem = AnyFoodSearchProblem(gameState)
 
-        "*** YOUR CODE HERE ***"
-        util.raiseNotDefined()
+        # default - Approach-1
+        # return search.astar(problem)
+        # Path found with cost 350.
+        # Pacman emerges victorious! Score: 2360
+
+        # default - Approach-2
+        # return search.breadthFirstSearch(problem)
+        # Path found with cost 350.
+        # Pacman emerges victorious! Score: 2360
+
+        # Approach-3
+        # Path found with cost 340.
+        # Pacman emerges victorious! Score: 2370
+
+        # Approach-4
+        # Path found with cost 334.
+        # Pacman emerges victorious! Score: 2376
+
+        # Approach-5
+        # Path found with cost 323.
+        # Pacman emerges victorious! Score: 2387
+
+        min_distance = float("inf")
+        list_of_food_coordinates = food.asList()
+        if list_of_food_coordinates:
+            for food_pos in list_of_food_coordinates:
+                # Calculate mazeDistance based on packman position, food position and starting state of the game.
+                distance = mazeDistance(food_pos, startPosition, gameState)
+                if distance < min_distance:
+                    min_distance = distance
+                    new_food_pos = food_pos
+
+        problem = PositionSearchProblem(gameState, start=startPosition, goal=new_food_pos, warn=False, visualize=False)
+        return search.astar(problem)
+
 
 class AnyFoodSearchProblem(PositionSearchProblem):
     """
@@ -536,8 +578,8 @@ class AnyFoodSearchProblem(PositionSearchProblem):
         """
         x,y = state
 
-        "*** YOUR CODE HERE ***"
-        util.raiseNotDefined()
+        return self.food[x][y]
+
 
 def mazeDistance(point1, point2, gameState):
     """
