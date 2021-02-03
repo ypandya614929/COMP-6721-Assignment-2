@@ -1,4 +1,5 @@
-Starting on 2-2 at 20:21:07
+(tutorial) ypandya@Yashs-MacBook-Pro COMP-6721-Assignment-2 % python autograder.py
+Starting on 2-2 at 21:01:39
 
 Question q1
 ===========
@@ -120,14 +121,14 @@ Question q5
 
 Question q6
 ===========
-*** FAIL: must use non-trivial heuristic
-*** FAIL: must use non-trivial heuristic
-*** FAIL: must use non-trivial heuristic
-path: ['North', 'East', 'East', 'East', 'East', 'North', 'North', 'West', 'West', 'West', 'West', 'North', 'North', 'North', 'North', 'North', 'North', 'North', 'North', 'West', 'West', 'West', 'West', 'South', 'South', 'East', 'East', 'East', 'East', 'South', 'South', 'South', 'South', 'South', 'South', 'West', 'West', 'South', 'South', 'South', 'West', 'West', 'North', 'East', 'East', 'North', 'North', 'East', 'East', 'East', 'East', 'East', 'East', 'East', 'East', 'South', 'South', 'East', 'East', 'East', 'East', 'East', 'North', 'North', 'East', 'East', 'North', 'North', 'East', 'East', 'North', 'North', 'East', 'East', 'East', 'East', 'South', 'South', 'South', 'South', 'East', 'East', 'North', 'North', 'East', 'East', 'South', 'South', 'South', 'South', 'South', 'North', 'North', 'North', 'North', 'North', 'North', 'North', 'West', 'West', 'North', 'North', 'East', 'East', 'North', 'North']
+*** PASS: heuristic value less than true cost at start state
+*** PASS: heuristic value less than true cost at start state
+*** PASS: heuristic value less than true cost at start state
+path: ['North', 'East', 'East', 'East', 'East', 'North', 'North', 'West', 'West', 'West', 'West', 'North', 'North', 'North', 'North', 'North', 'North', 'North', 'North', 'West', 'West', 'West', 'West', 'South', 'South', 'East', 'East', 'East', 'East', 'South', 'South', 'South', 'South', 'South', 'South', 'West', 'West', 'South', 'South', 'South', 'West', 'West', 'East', 'East', 'North', 'North', 'North', 'East', 'East', 'East', 'East', 'East', 'East', 'East', 'East', 'South', 'South', 'East', 'East', 'East', 'East', 'East', 'North', 'North', 'East', 'East', 'North', 'North', 'East', 'East', 'North', 'North', 'East', 'East', 'East', 'East', 'South', 'South', 'South', 'South', 'East', 'East', 'North', 'North', 'East', 'East', 'South', 'South', 'South', 'South', 'South', 'North', 'North', 'North', 'North', 'North', 'North', 'North', 'West', 'West', 'North', 'North', 'East', 'East', 'North', 'North']
 path length: 106
-*** FAIL: Heuristic resulted in expansion of 1967 nodes
+*** PASS: Heuristic resulted in expansion of 693 nodes
 
-### Question q6: 0/3 ###
+### Question q6: 3/3 ###
 
 
 Question q7
@@ -227,7 +228,7 @@ Question q8
 ### Question q8: 3/3 ###
 
 
-Finished at 20:21:18
+Finished at 21:01:49
 
 Provisional grades
 ==================
@@ -236,12 +237,13 @@ Question q2: 3/3
 Question q3: 3/3
 Question q4: 3/3
 Question q5: 3/3
-Question q6: 0/3
+Question q6: 3/3
 Question q7: 5/4
 Question q8: 3/3
 ------------------
-Total: 23/25
+Total: 26/25
 
 Your grades are NOT yet registered.  To register your grades, make sure
 to follow your instructor's guidelines to receive credit on your project.
 
+(tutorial) ypandya@Yashs-MacBook-Pro COMP-6721-Assignment-2 %

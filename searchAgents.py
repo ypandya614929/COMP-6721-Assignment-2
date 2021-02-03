@@ -375,8 +375,27 @@ def cornersHeuristic(state, problem):
     corners = problem.corners # These are the corner coordinates
     walls = problem.walls # These are the walls of the maze, as a Grid (game.py)
 
-    "*** YOUR CODE HERE ***"
-    return 0 # Default to trivial solution
+    heuristic_value = 0
+    corners_list = set(state[1])  # List of corners
+    position = state[0]  # Current/Start position
+
+    # Iterate through corners_list to find the heuristic_value by minimizing the cost values
+    # for each corner
+    while tuple(corners_list):
+        min_distance = float("inf")
+        # Using manhattanDistance find the corner with the minimum cost from the start position
+        for corner in tuple(corners_list):
+            distance = util.manhattanDistance(position, corner)
+            if distance < min_distance:
+                new_corner = corner
+                min_distance = distance
+        # Update heuristic_value by adding minimum corner cost/distance to it
+        heuristic_value += min_distance
+        position = new_corner
+        # Discard the corner from the corner_list
+        corners_list.discard(new_corner)
+    return heuristic_value
+
 
 class AStarCornersAgent(SearchAgent):
     "A SearchAgent for FoodSearchProblem using A* and your foodHeuristic"
@@ -470,13 +489,14 @@ def foodHeuristic(state, problem):
     """
     position, foodGrid = state
 
-    distance_list = []
+    distance_list = []  # list of distances
     heuristic_value = 0
-    list_of_food_coordinates = foodGrid.asList()
+    list_of_food_coordinates = foodGrid.asList()  # list of food coordinates
     if list_of_food_coordinates:
         for food_pos in list_of_food_coordinates:
             # Calculate mazeDistance based on packman position, food position and starting state of the game.
             distance_list.append(mazeDistance(position, food_pos, problem.startingGameState))
+        # Find the maximum distance from all the distances
         heuristic_value = max(distance_list)
     return heuristic_value
 
@@ -532,7 +552,7 @@ class ClosestDotSearchAgent(SearchAgent):
         # Pacman emerges victorious! Score: 2387
 
         min_distance = float("inf")
-        list_of_food_coordinates = food.asList()
+        list_of_food_coordinates = food.asList()  # list of food coordinates
         if list_of_food_coordinates:
             for food_pos in list_of_food_coordinates:
                 # Calculate mazeDistance based on packman position, food position and starting state of the game.
@@ -540,8 +560,9 @@ class ClosestDotSearchAgent(SearchAgent):
                 if distance < min_distance:
                     min_distance = distance
                     new_food_pos = food_pos
-
+        # Create a new problem object based on start position and the new position of the food
         problem = PositionSearchProblem(gameState, start=startPosition, goal=new_food_pos, warn=False, visualize=False)
+        # Apply A* algorithm implemented in Q4 to return optimum path
         return search.astar(problem)
 
 
