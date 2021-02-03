@@ -14,6 +14,7 @@ COMP-6721-Assignment-2
     - python autograder.py -q q3
     - python autograder.py -q q4
     - python autograder.py -q q5
+    - python autograder.py -q q6
     - python autograder.py -q q7
     - python autograder.py -q q8
 
@@ -24,6 +25,17 @@ COMP-6721-Assignment-2
     There is one terminal/cmd output file 'autograder_out.txt' which shows the grading and 
     result of test cases.
 
+#### Results
+
+#### Question:6
+- Heuristic resulted in expansion of **693** nodes
+  
+#### Question:7
+- expanded nodes: **4137**
+
+#### Question:8
+- Path found with cost **323**
+- Pacman emerges victorious! Score: **2387**
 
 ### Game Play Commands
     
@@ -47,6 +59,9 @@ COMP-6721-Assignment-2
 #### Question:5
     python pacman.py -l tinyCorners -p SearchAgent -a fn=bfs,prob=CornersProblem
     python pacman.py -l mediumCorners -p SearchAgent -a fn=bfs,prob=CornersProblem
+
+#### Question:6
+    python pacman.py -l mediumCorners -p AStarCornersAgent -z 0.5
 
 #### Question:7
     python pacman.py -l testSearch -p AStarFoodSearchAgent
